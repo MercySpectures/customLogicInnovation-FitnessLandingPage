@@ -32,7 +32,7 @@ export default function Navbar() {
           </li>
         ))}
       </ul>
-      <Link to="/" style={{ textDecoration: 'none' }}>
+      <Link to="/contact" style={{ textDecoration: 'none' }}>
         <button style={styles.btnPrimary} className="btn-primary">Contact Us</button>
       </Link>
     </nav>

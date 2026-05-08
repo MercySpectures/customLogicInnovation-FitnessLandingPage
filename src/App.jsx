@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -6,11 +7,23 @@ import Trainers from "./pages/Trainers";
 import Blog from "./pages/Blog";
 import Plans from "./pages/Plans";
 import Faq from "./pages/Faq";
+import Contact from "./pages/Contact";
 import { styles } from "./styles";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export default function App() {
   return (
     <>
+      <ScrollToTop />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@400;500;600&display=swap');
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -71,6 +84,7 @@ export default function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/plans" element={<Plans />} />
           <Route path="/faq" element={<Faq />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
       </div>

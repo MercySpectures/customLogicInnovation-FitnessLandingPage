@@ -1,9 +1,9 @@
 import { FadeIn } from "./FadeIn";
 import { styles } from "../styles";
 
-export default function Contact() {
+export default function Contact({ hideTitle, style }) {
   return (
-    <section style={styles.contactSection} className="contact-section">
+    <section style={{ ...styles.contactSection, ...style }} className="contact-section">
       <FadeIn direction="left">
         <div style={styles.contactImgs} className="contact-imgs-collage">
           <img src="https://images.unsplash.com/photo-1552196563-55cd4e45efb3?w=400&h=400&fit=crop" alt="" style={styles.contactImg1} />
@@ -14,7 +14,7 @@ export default function Contact() {
       </FadeIn>
       <div style={styles.contactForm}>
         <FadeIn direction="right" delay={0.1}>
-          <h2 style={styles.contactTitle}>Get in touch.</h2>
+          {!hideTitle && <h2 style={styles.contactTitle}>Get in touch.</h2>}
           <p style={styles.contactDesc}>
             Every day & Training sessions included with QR code. Let us align with your unique goals and needs.
           </p>
